@@ -1,0 +1,274 @@
+{
+    "data": [
+        {
+            "$approval": {
+                "delegate": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+            },
+            "Owner": {
+                "name": "Stas Grek",
+                "id": "3703802000000195673"
+            },
+            "Modified_Time": "2018-12-18T18:53:40+02:00",
+            "$currency_symbol": "$",
+            "Created_Time": "2018-12-18T18:53:24+02:00",
+            "$editable": true,
+            "Fact": 35920,
+            "Name": "Petrov 18.12.2016",
+            "Last_Activity_Time": "2018-12-18T18:53:40+02:00",
+            "Modified_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "$process_flow": false,
+            "Monthly_plan": 30000,
+            "id": "3703802000000195693",
+            "Created_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "All_time_fact": 96280,
+            "Tag": [],
+            "$approved": true
+        },
+        {
+            "$approval": {
+                "delegate": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+            },
+            "Owner": {
+                "name": "Petr Petrov",
+                "id": "3703802000000195673"
+            },
+            "Modified_Time": "2018-12-18T18:53:40+02:00",
+            "$currency_symbol": "$",
+            "Created_Time": "2018-12-18T18:53:24+02:00",
+            "$editable": true,
+            "Fact": 18920,
+            "Name": "Petrov 18.12.2016",
+            "Last_Activity_Time": "2018-12-18T18:53:40+02:00",
+            "Modified_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "$process_flow": false,
+            "Monthly_plan": 30000,
+            "id": "3703802000000195693",
+            "Created_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "All_time_fact": 76280,
+            "Tag": [],
+            "$approved": true
+        },
+        {
+            "$approval": {
+                "delegate": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+            },
+            "Owner": {
+                "name": "Viktoriya Moh",
+                "id": "3703802000000195673"
+            },
+            "Modified_Time": "2018-12-18T18:53:40+02:00",
+            "$currency_symbol": "$",
+            "Created_Time": "2018-12-18T18:53:24+02:00",
+            "$editable": true,
+            "Fact": 18920,
+            "Name": "Petrov 18.12.2016",
+            "Last_Activity_Time": "2018-12-18T18:53:40+02:00",
+            "Modified_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "$process_flow": false,
+            "Monthly_plan": 30000,
+            "id": "3703802000000195693",
+            "Created_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "All_time_fact": 76280,
+            "Tag": [],
+            "$approved": true
+        },
+        {
+            "$approval": {
+                "delegate": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+            },
+            "Owner": {
+                "name": "O. Makar",
+                "id": "3703802000000195673"
+            },
+            "Modified_Time": "2018-12-18T18:53:40+02:00",
+            "$currency_symbol": "$",
+            "Created_Time": "2018-12-18T18:53:24+02:00",
+            "$editable": true,
+            "Fact": 21920,
+            "Name": "Petrov 18.12.2016",
+            "Last_Activity_Time": "2018-12-18T18:53:40+02:00",
+            "Modified_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "$process_flow": false,
+            "Monthly_plan": 30000,
+            "id": "3703802000000195693",
+            "Created_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "All_time_fact": 56280,
+            "Tag": [],
+            "$approved": true
+        },
+        {
+            "$approval": {
+                "delegate": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+            },
+            "Owner": {
+                "name": "Aleks Max",
+                "id": "3703802000000195673"
+            },
+            "Modified_Time": "2018-12-18T18:53:40+02:00",
+            "$currency_symbol": "$",
+            "Created_Time": "2018-12-18T18:53:24+02:00",
+            "$editable": true,
+            "Fact": 5920,
+            "Name": "Petrov 18.12.2016",
+            "Last_Activity_Time": "2018-12-18T18:53:40+02:00",
+            "Modified_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "$process_flow": false,
+            "Monthly_plan": 30000,
+            "id": "3703802000000195693",
+            "Created_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "All_time_fact": 276280,
+            "Tag": [],
+            "$approved": true
+        },
+        {
+            "$approval": {
+                "delegate": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+            },
+            "Owner": {
+                "name": "Ivan Ivano",
+                "id": "3703802000000195659"
+            },
+            "Modified_Time": "2018-12-18T18:52:48+02:00",
+            "$currency_symbol": "$",
+            "Created_Time": "2018-12-18T18:52:33+02:00",
+            "$editable": true,
+            "Fact": 11230,
+            "Name": "Ivanov 18.12.2016",
+            "Last_Activity_Time": "2018-12-18T18:52:48+02:00",
+            "Modified_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "$process_flow": false,
+            "Monthly_plan": 30000,
+            "id": "3703802000000195684",
+            "Created_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "All_time_fact": 22280,
+            "Tag": [],
+            "$approved": true
+        },
+        {
+            "$approval": {
+                "delegate": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+            },
+            "Owner": {
+                "name": "Petr Petr",
+                "id": "3703802000000195673"
+            },
+            "Modified_Time": "2018-12-18T18:53:40+02:00",
+            "$currency_symbol": "$",
+            "Created_Time": "2018-12-18T18:53:24+02:00",
+            "$editable": true,
+            "Fact": 28920,
+            "Name": "Petrov 18.12.2016",
+            "Last_Activity_Time": "2018-12-18T18:53:40+02:00",
+            "Modified_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "$process_flow": false,
+            "Monthly_plan": 30000,
+            "id": "3703802000000195693",
+            "Created_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "All_time_fact": 166280,
+            "Tag": [],
+            "$approved": true
+        },
+        {
+            "$approval": {
+                "delegate": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+            },
+            "Owner": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "Modified_Time": "2018-12-18T18:50:43+02:00",
+            "$currency_symbol": "$",
+            "Created_Time": "2018-12-18T18:50:43+02:00",
+            "$editable": true,
+            "Fact": 12000,
+            "Name": "Pupkin 18.12.2016",
+            "Last_Activity_Time": null,
+            "Modified_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "$process_flow": false,
+            "Monthly_plan": 30000,
+            "id": "3703802000000195571",
+            "Created_By": {
+                "name": "test test",
+                "id": "3703802000000191015"
+            },
+            "All_time_fact": 52280,
+            "Tag": [],
+            "$approved": true
+        }
+    ],
+    "info": {
+        "per_page": 200,
+        "count": 3,
+        "page": 1,
+        "more_records": false
+    }
+}
