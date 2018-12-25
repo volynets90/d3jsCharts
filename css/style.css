@@ -49,9 +49,6 @@ line {
   text-anchor: end;
 }
 svg {
-  max-width: 100%;
-  max-height: 100%;
-  margin-left: 100px;
   overflow: visible;
   margin-bottom: 0;
   padding-bottom: 0;
@@ -63,13 +60,20 @@ svg {
     stroke-opacity: 0.7;
     stroke-dasharray: 3;
 }
+.chartAllTime, .chart{
+  text-align: center;
+}
 .chartAllTime{
   padding-bottom: 0;
   margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .chart{
   margin-top: 0;
   padding-top: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .chart svg{
   margin-bottom: 100px;
@@ -79,4 +83,12 @@ svg {
   stroke-opacity: 0.8;
   stroke-dasharray: 6;
   stroke-width: 2;
+}
+.cont{
+  width: 100%;
+}
+.test{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }

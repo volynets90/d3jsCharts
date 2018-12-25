@@ -1,14 +1,16 @@
 const margin = 50;
-const width = 900;
-const height = 300;
+const width = 880;
+const height = 280;
 
 //add to the end of selrcted blocks svg element with 'axis' class and set width/height
 const svg = d3.select('.chart').append('svg').attr('class', 'axis')
     .attr('width', width)
-    .attr('height', height);
+    .attr('height', height)
+    .attr('viewBox', '0 0 880 280');
 const svg2 = d3.select('.chartAllTime').append('svg').attr('class', 'axis')
     .attr('width', width)
     .attr('height', height)
+    .attr('viewBox', '0 0 880 280')
     .attr('xmlns', 'http://www.w3.org/2000/svg')
     .attr('xmlns:xlink', 'http://www.w3.org/1999/xlink');
 const chart = svg.append('g')
