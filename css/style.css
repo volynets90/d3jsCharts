@@ -70,25 +70,15 @@ svg {
   margin-right: auto;
 }
 .chart{
-  margin-top: 0;
+  margin-top: -5px;
   padding-top: 0;
   margin-left: auto;
   margin-right: auto;
 }
-.chart svg{
-  margin-bottom: 100px;
-}
+
  .barLines{
   stroke: rgb(55, 119, 156);
   stroke-opacity: 0.8;
   stroke-dasharray: 6;
   stroke-width: 2;
-}
-.cont{
-  width: 100%;
-}
-.test{
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
 }

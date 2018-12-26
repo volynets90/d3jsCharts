@@ -48,10 +48,6 @@ d3.json('./scripts/data.json').then(function (data) {
     arr = data;
     
     arr.data.forEach(d => {
-        console.log(d.Owner.name);
-        console.log(d.Fact);
-        console.log(d.Monthly_plan);
-        console.log(d.All_time_fact);
     });
  
    arr.data.sort(function(a, b){
@@ -167,9 +163,14 @@ d3.json('./scripts/data.json').then(function (data) {
     barLines
         .append('line')
         .attr('class', 'barLines')
-        .attr('x1', (d) => { return xScale(d.Owner.name) + 63 })
-        .attr('y1', (d) => { return yScale2(d.All_time_fact) })
+        .attr('x1', (d) =>{
+            console.log(xScale(d.Owner.name)+ 'x1');
+            return xScale(d.Owner.name);
+            
+        })
+        .attr('y1', (d) => yScale2(d.All_time_fact))
         .attr('y2', (d) => yScale2(d.All_time_fact))
-        .attr('x2', (d) => { return xScale(d.Owner.name) - xScale.bandwidth() + 63 });
-    
+        .attr('x2', d=>xScale(d.Owner.name) + xScale.bandwidth());
+        
+        console.log(xScale.bandwidth()+ 'x2');
 });
