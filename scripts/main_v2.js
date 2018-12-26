@@ -148,7 +148,7 @@ d3.json('./scripts/data.json').then(function (data) {
         .attr('x', -15)
         .attr('y', yScale2(prizes[1].price));
     var car = svg2.append('image')
-        .attr('xlink:href', function(){return '../img/citroen_PNG82.png'})
+        .attr('xlink:href', prizes[2].link)
         .attr('width', 117)
         .attr('height', 60)
         .attr('x', -15)
