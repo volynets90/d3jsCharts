@@ -20,25 +20,25 @@ const chart2 = svg2.append('g')
 
 var prizes = [
     {
-        name: 'iPhone',
-        link: 'http://www.pngmart.com/files/7/IPhone-PNG-Background-Image.png',
+        name: 'Квартира',
+        link: 'http://ubksg.ru/a1.png',
         x: 0,
         y: 10,
-        price: 35000
+        price: 300000
     },
     {
         name: 'iMac',
         link: 'https://www.doyoucopy.nl/wp-content/uploads/2018/03/webteksten-laten-verbeteren.png',
         x: 0,
         y: 20,
-        price: 140000
+        price: 70000
     },
     {
         name: 'Car',
         link: 'http://pngimg.com/uploads/citroen/citroen_PNG82.png',
         x: 0,
         y: 30,
-        price: 300000
+        price: 160000
     },
 ];
 
