@@ -22,22 +22,16 @@ var prizes = [
     {
         name: 'iMac',
         link: 'https://www.doyoucopy.nl/wp-content/uploads/2018/03/webteksten-laten-verbeteren.png',
-        x: 0,
-        y: 0,
         price: 70000
     },
     {
         name: 'Car',
         link: 'http://pngimg.com/uploads/citroen/citroen_PNG82.png',
-        x: 0,
-        y: 0,
         price: 160000
     },
     {
         name: 'Apartment',
         link: 'http://ubksg.ru/a1.png',
-        x: 0,
-        y: 0,
         price: 300000
     }
 ];
@@ -46,7 +40,6 @@ var prizes = [
 d3.json('./scripts/data.json').then(function (data) {
     var arr = new Array();
     arr = data;
-
     arr.data.forEach(d => {
     });
     arr.data.sort(function (a, b) {
@@ -147,7 +140,7 @@ d3.json('./scripts/data.json').then(function (data) {
             .text(prizes[0].price)
             .attr('y', yScale2(prizes[0].price) + 52)
         //.attr('x', 15)
-    ]
+    ];
 
 
     var car = [
@@ -162,8 +155,7 @@ d3.json('./scripts/data.json').then(function (data) {
             .text(prizes[1].price)
             .attr('y', yScale2(prizes[1].price) + 52)
             .attr('x', -10)
-    ]
-
+    ];
     var apartment = [
         svg2.append('image')
             .attr('xlink:href', prizes[2].link)
@@ -176,11 +168,11 @@ d3.json('./scripts/data.json').then(function (data) {
             .text(prizes[2].price)
             .attr('y', yScale2(prizes[2].price) + 52)
             .attr('x', -10)
-    ]
+    ];
 
 
     /*          Create prize lines for each employee      */
-    const barLines = chart2.selectAll()
+    var barLines = chart2.selectAll()
         .data(arr.data)
         .enter()
         .append('g');
@@ -188,13 +180,30 @@ d3.json('./scripts/data.json').then(function (data) {
         .append('line')
         .attr('class', 'barLines')
         .attr('x1', (d) => {
-            console.log(xScale(d.Owner.name) + 'x1');
             return xScale(d.Owner.name);
-
         })
         .attr('y1', (d) => yScale2(d.All_time_fact))
         .attr('y2', (d) => yScale2(d.All_time_fact))
         .attr('x2', d => xScale(d.Owner.name) + xScale.bandwidth());
+    barLines.append('text')
+        .attr('class', 'prizeLineText')
+        .text(
+            (d) => {
+                if (d.All_time_fact < prizes[0].price) {
+                    console.log(d.All_time_fact);
+                    return ("До приза "+(prizes[0].price - d.All_time_fact).toString());
+                }
+                else if (d.All_time_fact < prizes[1].price) {
+                    console.log(prizes[1].price - d.All_time_fact);
+                    return ("До приза "+(prizes[1].price - d.All_time_fact).toString());
+                }
+                else if (d.All_time_fact < prizes[2].price) {
+                    console.log(prizes[2].price - d.All_time_fact);
+                    return ("До приза "+(prizes[2].price - d.All_time_fact).toString());
+                }
+            }
+        )
+        .attr('x', (d) => xScale(d.Owner.name)-10)
+        .attr('y', (d) => yScale2(d.All_time_fact) - 10);
 
-    console.log(xScale.bandwidth() + 'x2');
 });

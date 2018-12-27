@@ -48,7 +48,7 @@ line {
 
 svg {
     overflow: visible;
-    margin-bottom: 0;
+    margin-bottom: 0px;
     padding-bottom: 0;
     margin-top: 0;
     padding-top: 0;
@@ -76,6 +76,7 @@ svg {
     padding-top: 0;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 100px;
 }
 
 .barLines {
@@ -88,4 +89,8 @@ svg {
     text-anchor: start;
     font: 12px Verdana;
     fill: rgb(13, 139, 29);
+}
+.axis .prizeLineText{
+    font: 10px Verdana;
+    fill: rgb(83, 88, 84);
 }
