@@ -50,15 +50,16 @@ d3.json('./scripts/data.json').then(function (data) {
         .range([height, 0])
         .domain([0, d3.max(arr.data, (d) => {
             if (d.Fact > d.Monthly_plan)
-                return d.Fact + 1000;
+                return d.Fact + 10000;
             else
-                return d.Monthly_plan + 1000;
+                return d.Monthly_plan + 10000;
         })]);
     var yAxis = d3.axisLeft(yScale).ticks(5);
     svg.append('g')
         .attr('class', 'y-axis')
         .attr('transform', "translate(" + margin + "," + margin + ")")
         .call(yAxis);
+
 
     /*      Create x-axis       */
     const xScale = d3.scaleBand()
@@ -70,15 +71,7 @@ d3.json('./scripts/data.json').then(function (data) {
         .attr('class', 'x-axis')
         .call(d3.axisBottom(xScale));
 
-    /*      dashed grid    
-    chart.append('g')
-        .attr('class', 'grid')
-        .call(d3.axisLeft()
-            .scale(yScale)
-            .tickSize(-width, 0, 0)
-            .tickFormat(''));  */
-
-    /*      Make fill column */
+    /*      Build facts columns */
     const barGroups = chart.selectAll()
         .data(arr.data)
         .enter()
@@ -90,42 +83,90 @@ d3.json('./scripts/data.json').then(function (data) {
         .attr('y', (d) => yScale(d.Fact))
         .attr('height', (d) => height - yScale(d.Fact))
         .attr('width', xScale.bandwidth());
-       
-    /**          Add Plan line         */
-    const planLine = chart.selectAll()
+    barGroups.append('text')
+        .attr('class', 'planCompleatedText')
+        .text((d) => {
+            return (((d.Fact * 100) / d.Monthly_plan).toString().substr(0, 5) + "%");
+
+        })
+        .attr('x', (d) => xScale(d.Owner.name) + 6)
+        .attr('y', (d) => yScale(d.Fact) - 4);
+    /*            Add prize images             */
+    var prizeImages = barGroups.append('image')
+        .attr('class', 'prizeImage')
+        .attr('width', 117)
+        .attr('height', 40)
+        .attr('xlink:href', (d) => {
+            if (d.All_time_fact < prizes[0].price) {
+                return prizes[0].link;
+            }
+            else if (d.All_time_fact < prizes[1].price) {
+                return prizes[1].link;
+            }
+            else if (d.All_time_fact < prizes[2].price) {
+                return prizes[2].link;
+            }
+        })
+        .attr('x', (d) => xScale(d.Owner.name) - 20)
+        .attr('y', (d) => {
+            if (d.Monthly_plan > d.Fact)
+                return yScale(d.Monthly_plan) - 70;
+            else
+                return yScale(d.Fact) - 80;
+        }
+        );
+    /*          Build stroke progress */
+    barGroups.append('rect')
+        .attr('class', 'progressStroke')
+        .attr('x', (d) => xScale(d.Owner.name))
+        .attr('y', (d) => {
+            if (d.Monthly_plan > d.Fact)
+                return yScale(d.Monthly_plan) - 28;
+            else
+                return yScale(d.Fact) - 38;
+        })
+        .attr('height', 10)
+        .attr('width', xScale.bandwidth());
+
+    /*          Fill stroke progress */
+    barGroups.append('rect')
+        .attr('class', 'filProgress')
+        .attr('x', (d) => xScale(d.Owner.name))
+        .attr('y', (d) => {
+            if (d.Monthly_plan > d.Fact)
+                return yScale(d.Monthly_plan) - 28;
+            else
+                return yScale(d.Fact) - 38;
+        })
+        .attr('height', 10)
+        .attr('width', xScale.bandwidth());
+
+    /* Build plans columns */
+    const strokeBars = chart.selectAll()
         .data(arr.data)
         .enter()
         .append('g');
-    planLine.append("line")
-        .attr('class', 'planLine')
-        .attr("x1", 0)
-        .attr("y1", (d) => yScale(d.Monthly_plan))
-        .attr('x2', width)
-        .attr('y2', (d) => yScale(d.Monthly_plan));
+    strokeBars.append('rect')
+        .attr('class', 'barStroke')
+        .attr('x', (d) => xScale(d.Owner.name))
+        .attr('y', (d) => yScale(d.Monthly_plan))
+        .attr('height', (d) => height - yScale(d.Monthly_plan))
+        .attr('width', xScale.bandwidth());
 
-    /*              Prizes x-axis        */
-    const xScale2 = d3.scaleBand()
-        .range([0, width])
-        .domain(arr.data.map((d) => { return d.Owner.name }))
-        .padding(0.6);
-    /*  svg2.append('g')
-          .attr('transform', `translate(50, ${height + margin})`)
-          .call(d3.axisBottom(xScale2));
-  
-      /*          Create pize y-axis      */
-    const yScale2 = d3.scaleLinear()
-        .range([height, 0])
-        .domain([0, d3.max(prizes, (d) => {
-            return d.price;
-        })]);
-    var yAxis2 = d3.axisLeft(yScale2).ticks(0);
-    svg2.append('g')
-        .attr('class', 'y-axis')
-        .attr('transform', "translate(" + margin + "," + margin + ")")
-        .call(yAxis2);
+    /*          Create pize y-axis     
+  const yScale2 = d3.scaleLinear()
+      .range([height, 0])
+      .domain([0, d3.max(prizes, (d) => {
+          return d.price;
+      })]);
+  var yAxis2 = d3.axisLeft(yScale2).ticks(0);
+  svg2.append('g')
+      .attr('class', 'y-axis')
+      .attr('transform', "translate(" + margin + "," + margin + ")")
+      .call(yAxis2); */
 
 
-    /*              Add prizes         */
+    /*              Add prizes         
     var iMac = [
         svg2.append('image')
             .attr('xlink:href', prizes[0].link)
@@ -167,9 +208,9 @@ d3.json('./scripts/data.json').then(function (data) {
             .attr('y', yScale2(prizes[2].price) + 52)
             .attr('x', -10)
     ];
+*/
 
-
-    /*          Create prize lines for each employee      */
+    /*          Create prize lines for each employee    
     var barLines = chart2.selectAll()
         .data(arr.data)
         .enter()
@@ -205,6 +246,7 @@ d3.json('./scripts/data.json').then(function (data) {
             }
         )
         .attr('x', (d) => xScale(d.Owner.name) - 10)
-        .attr('y', (d) => yScale2(d.All_time_fact) - 10);
+        .attr('y', (d) => yScale2(d.All_time_fact) - 10);  
+        */
 
 });

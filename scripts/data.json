@@ -89,7 +89,7 @@
                 "id": "3703802000000191015"
             },
             "$process_flow": false,
-            "Monthly_plan": 30000,
+            "Monthly_plan": 40000,
             "id": "3703802000000195693",
             "Created_By": {
                 "name": "test test",
@@ -155,7 +155,7 @@
                 "id": "3703802000000191015"
             },
             "$process_flow": false,
-            "Monthly_plan": 30000,
+            "Monthly_plan": 20000,
             "id": "3703802000000195693",
             "Created_By": {
                 "name": "test test",
@@ -165,6 +165,7 @@
             "Tag": [],
             "$approved": true
         }
+        
     ],
     "info": {
         "per_page": 200,
