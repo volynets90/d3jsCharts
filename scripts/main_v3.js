@@ -139,7 +139,19 @@ d3.json('./scripts/data.json').then(function (data) {
                 return yScale(d.Fact) - 38;
         })
         .attr('height', 10)
-        .attr('width', xScale.bandwidth());
+        //.attr('width', xScale.bandwidth());
+        .attr('width', (d) => {
+            if (d.All_time_fact < prizes[0].price) {
+                return (xScale.bandwidth() * d.All_time_fact) / prizes[0].price;
+            }
+            else if (d.All_time_fact < prizes[1].price) {
+                return (xScale.bandwidth() * d.All_time_fact) / prizes[1].price;
+            }
+            else if (d.All_time_fact < prizes[2].price) {
+                return (xScale.bandwidth() * d.All_time_fact) / prizes[2].price;
+            }
+        }
+        )
 
     /* Build plans columns */
     const strokeBars = chart.selectAll()
