@@ -20,38 +20,37 @@ const chart2 = svg2.append('g')
 
 var prizes = [
     {
-        name: 'Квартира',
-        link: 'http://ubksg.ru/a1.png',
-        x: 0,
-        y: 10,
-        price: 300000
-    },
-    {
         name: 'iMac',
         link: 'https://www.doyoucopy.nl/wp-content/uploads/2018/03/webteksten-laten-verbeteren.png',
         x: 0,
-        y: 20,
+        y: 0,
         price: 70000
     },
     {
         name: 'Car',
         link: 'http://pngimg.com/uploads/citroen/citroen_PNG82.png',
         x: 0,
-        y: 30,
+        y: 0,
         price: 160000
     },
+    {
+        name: 'Apartment',
+        link: 'http://ubksg.ru/a1.png',
+        x: 0,
+        y: 0,
+        price: 300000
+    }
 ];
 
 //load data
 d3.json('./scripts/data.json').then(function (data) {
     var arr = new Array();
     arr = data;
-    
+
     arr.data.forEach(d => {
     });
- 
-   arr.data.sort(function(a, b){
-    return a.Fact > b.Fact?-1:1;
+    arr.data.sort(function (a, b) {
+        return a.Fact > b.Fact ? -1 : 1;
     });
     /*      Create y-axis       */
     const yScale = d3.scaleLinear()
@@ -75,15 +74,16 @@ d3.json('./scripts/data.json').then(function (data) {
         .padding(0.6);
     svg.append('g')
         .attr('transform', `translate(50, ${height + margin})`)
+        .attr('class', 'x-axis')
         .call(d3.axisBottom(xScale));
 
-        /*      dashed grid      */
+    /*      dashed grid      */
     chart.append('g')
-    .attr('class', 'grid')
-    .call(d3.axisLeft()
-        .scale(yScale)
-        .tickSize(-width, 0, 0)
-        .tickFormat(''));
+        .attr('class', 'grid')
+        .call(d3.axisLeft()
+            .scale(yScale)
+            .tickSize(-width, 0, 0)
+            .tickFormat(''));
 
     /*      Make fill column */
     const barGroups = chart.selectAll()
@@ -98,7 +98,7 @@ d3.json('./scripts/data.json').then(function (data) {
         .attr('height', (d) => height - yScale(d.Fact))
         .attr('width', xScale.bandwidth());
 
-    
+
 
     /**          Add Plan line         */
     const planLine = chart.selectAll()
@@ -134,28 +134,52 @@ d3.json('./scripts/data.json').then(function (data) {
         .call(yAxis2);
 
 
-    /*              Add prizes imaes         */
-    var iPhone = svg2.append('image')
-        .attr('xlink:href', prizes[0].link)
-        .attr('width', 117)
-        .attr('height', 60)
-        .attr('x', -15)
-        .attr('y', yScale2(prizes[0].price));
-    var iMac = svg2.append('image')
-        .attr('xlink:href', prizes[1].link)
-        .attr('width', 117)
-        .attr('height', 60)
-        .attr('x', -15)
-        .attr('y', yScale2(prizes[1].price));
-    var car = svg2.append('image')
-        .attr('xlink:href', prizes[2].link)
-        .attr('width', 117)
-        .attr('height', 60)
-        .attr('x', -15)
-        .attr('y', yScale2(prizes[2].price));
+    /*              Add prizes         */
+    var iMac = [
+        svg2.append('image')
+            .attr('xlink:href', prizes[0].link)
+            .attr('width', 117)
+            .attr('height', 40)
+            .attr('x', -45)
+            .attr('y', yScale2(prizes[0].price)),
+        svg2.append('text')
+            .attr('class', 'prizePrice')
+            .text(prizes[0].price)
+            .attr('y', yScale2(prizes[0].price) + 52)
+        //.attr('x', 15)
+    ]
 
 
-    /*          Create pize lines for each employee      */
+    var car = [
+        svg2.append('image')
+            .attr('xlink:href', prizes[1].link)
+            .attr('width', 117)
+            .attr('height', 40)
+            .attr('x', -45)
+            .attr('y', yScale2(prizes[1].price)),
+        svg2.append('text')
+            .attr('class', 'prizePrice')
+            .text(prizes[1].price)
+            .attr('y', yScale2(prizes[1].price) + 52)
+            .attr('x', -10)
+    ]
+
+    var apartment = [
+        svg2.append('image')
+            .attr('xlink:href', prizes[2].link)
+            .attr('width', 117)
+            .attr('height', 40)
+            .attr('x', -45)
+            .attr('y', yScale2(prizes[2].price)),
+        svg2.append('text')
+            .attr('class', 'prizePrice')
+            .text(prizes[2].price)
+            .attr('y', yScale2(prizes[2].price) + 52)
+            .attr('x', -10)
+    ]
+
+
+    /*          Create prize lines for each employee      */
     const barLines = chart2.selectAll()
         .data(arr.data)
         .enter()
@@ -163,14 +187,14 @@ d3.json('./scripts/data.json').then(function (data) {
     barLines
         .append('line')
         .attr('class', 'barLines')
-        .attr('x1', (d) =>{
-            console.log(xScale(d.Owner.name)+ 'x1');
+        .attr('x1', (d) => {
+            console.log(xScale(d.Owner.name) + 'x1');
             return xScale(d.Owner.name);
-            
+
         })
         .attr('y1', (d) => yScale2(d.All_time_fact))
         .attr('y2', (d) => yScale2(d.All_time_fact))
-        .attr('x2', d=>xScale(d.Owner.name) + xScale.bandwidth());
-        
-        console.log(xScale.bandwidth()+ 'x2');
+        .attr('x2', d => xScale(d.Owner.name) + xScale.bandwidth());
+
+    console.log(xScale.bandwidth() + 'x2');
 });

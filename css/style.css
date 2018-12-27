@@ -4,16 +4,9 @@ body {
     background: #ffff;
 }
 
-
-
 .bar {
     fill: #2f9e2f;
     opacity: 0.8;
-}
-
-text {
-    font-size: 12px;
-    fill: #fff;
 }
 
 path {
@@ -25,10 +18,10 @@ line {
     stroke: rgb(22, 22, 22);
 }
 
-
 .grid path {
     stroke-width: 0;
 }
+
 /*      сетка       */
 .grid .tick line {
     stroke: rgb(153, 153, 153);
@@ -41,46 +34,58 @@ line {
     stroke-opacity: 0.2;
 }
 
-.axis text {
+ .x-axis text{
     font: 12px Verdana;
     text-anchor: middle;
     fill: rgb(13, 139, 29);
 }
 
-.y-axis text{
-  text-anchor: end;
+.y-axis text {
+    text-anchor: end;
+    font: 12px Verdana;
+    fill: rgb(13, 139, 29);
 }
+
 svg {
-  overflow: visible;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  margin-top: 0;
-  padding-top: 0;
+    overflow: visible;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    padding-top: 0;
 }
+
 .planLine {
     stroke: rgb(87, 87, 87);
     stroke-opacity: 0.7;
     stroke-dasharray: 3;
 }
-.chartAllTime, .chart{
-  text-align: center;
-}
-.chartAllTime{
-  padding-bottom: 0;
-  margin-bottom: 0px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.chart{
-  margin-top: -5px;
-  padding-top: 0;
-  margin-left: auto;
-  margin-right: auto;
+
+.chartAllTime, .chart {
+    text-align: center;
 }
 
- .barLines{
-  stroke: rgb(94, 170, 43);
-  stroke-opacity: 0.8;
-  stroke-dasharray: 6;
-  stroke-width: 2;
+.chartAllTime {
+    padding-bottom: 0;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chart {
+    margin-top: -5px;
+    padding-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.barLines {
+    stroke: rgb(94, 170, 43);
+    stroke-opacity: 0.8;
+    stroke-dasharray: 6;
+    stroke-width: 2;
+}
+ .axis .prizePrice{
+    text-anchor: start;
+    font: 12px Verdana;
+    fill: rgb(13, 139, 29);
 }
