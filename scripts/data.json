@@ -81,7 +81,7 @@
             "$currency_symbol": "$",
             "Created_Time": "2018-12-18T18:53:24+02:00",
             "$editable": true,
-            "Fact": 12920,
+            "Fact": 20920,
             "Name": "Petrov 18.12.2016",
             "Last_Activity_Time": "2018-12-18T18:53:40+02:00",
             "Modified_By": {
@@ -95,7 +95,7 @@
                 "name": "test test",
                 "id": "3703802000000191015"
             },
-            "All_time_fact": 176280,
+            "All_time_fact": 99998,
             "Tag": [],
             "$approved": true
         },

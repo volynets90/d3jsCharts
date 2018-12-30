@@ -1,16 +1,16 @@
 const margin = 50;
 const width = 880;
-const height = 280;
+const height = 480;
 
 //add to the end of selrcted blocks svg element with 'axis' class and set width/height
 const svg = d3.select('.chart').append('svg').attr('class', 'axis')
     .attr('width', width)
     .attr('height', height)
-    .attr('viewBox', '0 0 880 280');
+    .attr('viewBox', '0 0 880 480');
 const svg2 = d3.select('.chartAllTime').append('svg').attr('class', 'axis')
     .attr('width', width)
     .attr('height', height)
-    .attr('viewBox', '0 0 880 280')
+    .attr('viewBox', '0 0 880 480')
     .attr('xmlns', 'http://www.w3.org/2000/svg')
     .attr('xmlns:xlink', 'http://www.w3.org/1999/xlink');
 const chart = svg.append('g')
@@ -110,9 +110,9 @@ d3.json('./scripts/data.json').then(function (data) {
         .attr('x', (d) => xScale(d.Owner.name) - 20)
         .attr('y', (d) => {
             if (d.Monthly_plan > d.Fact)
-                return yScale(d.Monthly_plan) - 70;
+                return yScale(d.Monthly_plan) - 170;
             else
-                return yScale(d.Fact) - 80;
+                return yScale(d.Fact) - 180;
         }
         );
     /*          Build stroke progress */
@@ -121,37 +121,69 @@ d3.json('./scripts/data.json').then(function (data) {
         .attr('x', (d) => xScale(d.Owner.name))
         .attr('y', (d) => {
             if (d.Monthly_plan > d.Fact)
-                return yScale(d.Monthly_plan) - 28;
+                return yScale(d.Monthly_plan) - 128;
             else
-                return yScale(d.Fact) - 38;
+                return yScale(d.Fact) - 138;
         })
         .attr('height', 10)
         .attr('width', xScale.bandwidth());
-
+    function multiply(a, b) {
+        a * b;
+    }
+    multiply(3, 4);
+    var percents = [];
     /*          Fill stroke progress */
     barGroups.append('rect')
         .attr('class', 'filProgress')
         .attr('x', (d) => xScale(d.Owner.name))
         .attr('y', (d) => {
             if (d.Monthly_plan > d.Fact)
-                return yScale(d.Monthly_plan) - 28;
+                return yScale(d.Monthly_plan) - 128;
             else
-                return yScale(d.Fact) - 38;
+                return yScale(d.Fact) - 138;
         })
         .attr('height', 10)
-        //.attr('width', xScale.bandwidth());
         .attr('width', (d) => {
             if (d.All_time_fact < prizes[0].price) {
+                console.log(d.All_time_fact * 100 / prizes[0].price);
+                percents.push(d.All_time_fact * 100 / prizes[0].price);
                 return (xScale.bandwidth() * d.All_time_fact) / prizes[0].price;
             }
             else if (d.All_time_fact < prizes[1].price) {
+                console.log(d.All_time_fact * 100 / prizes[1].price);
+                percents.push(d.All_time_fact * 100 / prizes[1].price);
                 return (xScale.bandwidth() * d.All_time_fact) / prizes[1].price;
             }
             else if (d.All_time_fact < prizes[2].price) {
+                console.log(d.All_time_fact * 100 / prizes[2].price);
+                percents.push(d.All_time_fact * 100 / prizes[2].price);
                 return (xScale.bandwidth() * d.All_time_fact) / prizes[2].price;
             }
         }
+        );
+    /**               Add % to prize            */
+    barGroups.append('text')
+        .attr('class', 'percentToPrize')
+        .text(
+            (d) => {
+                if (d.All_time_fact < prizes[0].price) {
+                    return (d.All_time_fact * 100 / prizes[0].price).toString().substr(0, 2) + "%";
+                }
+                else if (d.All_time_fact < prizes[1].price) {
+                    return (d.All_time_fact * 100 / prizes[1].price).toString().substr(0, 2) + "%";
+                }
+                else if (d.All_time_fact < prizes[2].price) {
+                    return (d.All_time_fact * 100 / prizes[2].price).toString().substr(0, 2) + "%";
+                }
+            }
         )
+        .attr('x', (d) => xScale(d.Owner.name) + 70)
+        .attr('y', (d) => {
+            if (d.Monthly_plan > d.Fact)
+                return yScale(d.Monthly_plan) - 118;
+            else
+                return yScale(d.Fact) - 128;
+        });
 
     /* Build plans columns */
     const strokeBars = chart.selectAll()
