@@ -62,7 +62,7 @@
                 "name": "test test",
                 "id": "3703802000000191015"
             },
-            "All_time_fact": 76280,
+            "All_time_fact": 62280,
             "Tag": [],
             "$approved": true
         },
@@ -89,13 +89,13 @@
                 "id": "3703802000000191015"
             },
             "$process_flow": false,
-            "Monthly_plan": 40000,
+            "Monthly_plan": 35000,
             "id": "3703802000000195693",
             "Created_By": {
                 "name": "test test",
                 "id": "3703802000000191015"
             },
-            "All_time_fact": 99998,
+            "All_time_fact": 69998,
             "Tag": [],
             "$approved": true
         },
@@ -128,7 +128,7 @@
                 "name": "test test",
                 "id": "3703802000000191015"
             },
-            "All_time_fact": 26280,
+            "All_time_fact": 26283,
             "Tag": [],
             "$approved": true
         },

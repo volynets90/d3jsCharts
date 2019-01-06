@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Note",
+        "link": "https:\/\/www.asus.com\/ua\/Laptops\/ASUS-Laptop-E402WA\/websites\/global\/products\/3tcXKZ5TbCLp2epf\/img\/01\/fg.png",
+        "price": "65000"
+    },
+    {
+        "name": "Mac",
+        "link": "https:\/\/www.doyoucopy.nl\/wp-content\/uploads\/2018\/03\/webteksten-laten-verbeteren.png",
+        "price": "70000"
+    },
+    {
+        "name": "Car",
+        "link": "http:\/\/pngimg.com\/uploads\/citroen\/citroen_PNG82.png",
+        "price": "160000"
+    },
+    {
+        "name": "Appartment",
+        "link": "https:\/\/vignette.wikia.nocookie.net\/cityville\/images\/1\/11\/Dtwn_bus_supermarket_apartment.png",
+        "price": "350000"
+    },
+    {
+        "name": "iPhone X",
+        "link": "https:\/\/imazing.com\/img\/visual\/backups\/top-iphone.png",
+        "price": "50000"
+    }
+]

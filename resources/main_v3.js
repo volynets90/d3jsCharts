@@ -7,33 +7,51 @@ const svg = d3.select('.chart').append('svg').attr('class', 'axis')
     .attr('width', width)
     .attr('height', height)
     .attr('viewBox', '0 0 880 480');
+const svg2 = d3.select('.chartAllTime').append('svg').attr('class', 'axis')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('viewBox', '0 0 880 480')
+    .attr('xmlns', 'http://www.w3.org/2000/svg')
+    .attr('xmlns:xlink', 'http://www.w3.org/1999/xlink');
 const chart = svg.append('g')
     .attr('transform', `translate(${margin}, ${margin})`);
+const chart2 = svg2.append('g')
+    .attr('transform', `translate(${margin}, ${margin})`);
+
+var prizes = [
+    {
+        name: 'iMac',
+        link: 'https://www.doyoucopy.nl/wp-content/uploads/2018/03/webteksten-laten-verbeteren.png',
+        price: 70000
+    },
+    {
+        name: 'Car',
+        link: 'http://pngimg.com/uploads/citroen/citroen_PNG82.png',
+        price: 160000
+    },
+    {
+        name: 'Apartment',
+        link: 'http://ubksg.ru/a1.png',
+        price: 300000
+    }
+];
 /*
 $.ajaxSetup({
     async: false
   });
 */
-$.ajax({
-    url: "https://www.zohoapis.com/crm/v2/Plans_KPI?cvid=3678676000000373003",
-    type: 'GET',
-    // Fetch the stored token from localStorage and set in the header
-    headers: {"Authorization": 'bc89ac189d07391f30ebe48e1e399775'},
-    success: function(data) {
-        console.log('Success!');
-      }
-  });
+
 var prizesJson = [];
-$.getJSON('./prize.json', function (json) {
+$.getJSON('../html/prize.json', function (json) {
     json.forEach(d => {
         prizesJson.push(d);
     });
-    console.log(prizesJson);
+console.log(prizesJson);
     d3.json('./scripts/data.json').then(function (data) {
         //console.log(prizesJson);
         var arr = [];
-        arr = data;
-        prizesJson.sort(function (a, b) {
+        arr = data; 
+        prizesJson.sort(function(a,b){
             return Number(a.price) < Number(b.price) ? -1 : 1;
         });
         console.log(prizesJson);
@@ -71,37 +89,13 @@ $.getJSON('./prize.json', function (json) {
             .data(arr.data)
             .enter()
             .append('g');
-
         barGroups
             .append('rect')
             .attr('class', 'bar')
             .attr('x', (d) => xScale(d.Owner.name))
             .attr('y', (d) => yScale(d.Fact))
             .attr('height', (d) => height - yScale(d.Fact))
-            .attr('width', xScale.bandwidth())
-            .on('mouseenter', function () {
-                console.log("enter");
-                d3.select(this.barGroups).append('text')
-                    .attr('class', 'hoverText')
-                    .text('teest')
-                    .attr('x', (d) => xScale(d.Owner.name) + 6)
-                    .attr('y', (d) => yScale(d.Fact) - 4);
-                /* barGroups.append('text')
-                     .attr('class', 'hoverText')
-                     .text((d) => {
-                         return d.Fact.toString();
- 
-                     })
-                     .attr('x', (d) => xScale(d.Owner.name) + 6)
-                     .attr('y', (d) => yScale(d.Fact) - 4);*/
-            })
-            .on('mouseleave', function () {
-                d3.select(this)
-                    .transition()
-                    .duration(300)
-                    .attr('opacity', 1)
-                chart.selectAll('.hoverText').remove()
-            });
+            .attr('width', xScale.bandwidth());
         barGroups.append('text')
             .attr('class', 'planCompleatedText')
             .text((d) => {
@@ -142,8 +136,10 @@ $.getJSON('./prize.json', function (json) {
             })
             .attr('height', 10)
             .attr('width', xScale.bandwidth());
-
-
+        function multiply(a, b) {
+            a * b;
+        }
+        multiply(3, 4);
         var percents = [];
         /*          Fill stroke progress */
         barGroups.append('rect')
@@ -215,21 +211,9 @@ $.getJSON('./prize.json', function (json) {
             .attr('x', (d) => xScale(d.Owner.name))
             .attr('y', (d) => yScale(d.Monthly_plan))
             .attr('height', (d) => height - yScale(d.Monthly_plan))
-            .attr('width', xScale.bandwidth())
-            .on('mouseenter', function (actual, i) {
-                console.log("enter");
-                d3.select(this)
-                    .transition()
-                    .duration(300)
-                    .attr('opacity', 0.9)
-            })
-            .on('mouseleave', function () {
-                console.log("leave");
-                d3.select(this)
-                    .transition()
-                    .duration(300)
-                    .attr('opacity', 1)
-            });
+            .attr('width', xScale.bandwidth());
 
     });
 });
+
+
