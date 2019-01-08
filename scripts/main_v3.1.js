@@ -15,7 +15,7 @@ $.ajaxSetup({
   });
 */
 
-console.log('enter point');
+console.log('click!');
 $.ajax({
     url: "./record_data.php",
     type: 'POST',

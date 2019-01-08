@@ -1,17 +1,1 @@
-[
-    {
-        "name": "Mac",
-        "link": "https:\/\/www.doyoucopy.nl\/wp-content\/uploads\/2018\/03\/webteksten-laten-verbeteren.png",
-        "price": 70000
-    },
-    {
-        "name": "Car",
-        "link": "http:\/\/pngimg.com\/uploads\/citroen\/citroen_PNG82.png",
-        "price": 160000
-    },
-    {
-        "name": "Apartment",
-        "link": "http:\/\/ubksg.ru\/a1.png",
-        "price": 300000
-    }
-]
+[{"name":"Mac","link":"https:\/\/www.doyoucopy.nl\/wp-content\/uploads\/2018\/03\/webteksten-laten-verbeteren.png","price":70000},{"name":"Car","link":"http:\/\/pngimg.com\/uploads\/citroen\/citroen_PNG82.png","price":160000},{"name":"Apartment","link":"http:\/\/ubksg.ru\/a1.png","price":300000},{"name":"Samsung Note 9","link":"https:\/\/eshop.ooredoo.om\/media\/catalog\/product\/cache\/1\/image\/450x450\/9df78eab33525d08d6e5fb8d27136e95\/i\/m\/img_product_01_1_2.png","price":"65000"}]
